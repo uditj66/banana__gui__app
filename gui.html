@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JAVAscript</title>
+  <style>
+    button {
+      margin: auto;
+      padding: 0.5rem;
+      font-size: x-large;
+      color: white;
+      ;
+      background-color: blueviolet;
+      box-shadow: darkgrey;
+      border-radius: 2em;
+      position: relative;
+      left: 350px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>THIS IS OUR JAVASCRIPT</h1>
+    <div id="content"></div>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora nihil
+      molestiae consequuntur repellendus unde, autem maiores expedita sint
+      perspiciatis consequatur corrupti nulla, non fugiat! Excepturi error
+      enim culpa vero tempora incidunt illum amet laborum, autem, nihil quos
+      iusto odio eveniet quae sequi nobis in sed, dolores cupiditate
+      voluptatum? Possimus quam placeat consequuntur quaerat saepe ipsa
+      voluptates, quia cumque nihil rem sit distinctio nobis mollitia debitis
+      nesciunt dolorum eligendi soluta vel nostrum accusantium sapiente
+      doloremque asperiores dolore? Cumque id nobis, aut fugit ipsum ipsa est
+      accusantium unde eligendi rerum voluptas eveniet, neque iure atque
+      impedit molestiae officiis ipsam dolore itaque. Minus!
+    </p>
+    <p>
+      write here:
+      <textarea name="input_txt" id="text" cols="100" rows="10" placeholder="what do want to translate"></textarea>
+    </p>
+
+    <button>translate</button>
+    <div id="output">OUTPUT WILL BE SHOWN HERE 👇</div>
+    <p>my output: <textarea name="output" id="output__text" cols="100" rows="10"></textarea></p>
+  </div>
+  <script>
+   
+    var button1 = document.querySelector("button");
+    var textInput = document.querySelector("#text");
+    var textoutput = document.querySelector("#output__text");
+
+    console.log(button1);
+    console.log(textInput);
+    console.log(textoutput);
+
+    var serverUrl = "https://lessonfourapi.tanaypratap.repl.co/translate/yoda.json";
+    // var serverUrlMinion=  "https://api.funtranslations.com/translate/";
+
+    function getTranslationByUrl(text) {
+      return serverUrl + "?" + "text" + text;
+    }
+
+    function eventHandler() {
+      // console.log("button clicked!");
+      // var username=prompt("welcome champ! what's your name");
+      // button1.textContent=username;
+      // console.log("input is",textInput.value);
+      // textoutput.innerText="yegrgvywguvgu udit jain";
+      var finaltext = textInput.value;
+      fetch(getTranslationByUrl(finaltext))
+        .then(response => response.json())
+        .then(json => {
+          var translatedtext=json.contents.translated;
+          textoutput.innerHTML=translatedtext;
+        })
+
+    };
+    button1.addEventListener("click", eventHandler);
+
+     
+  </script>
+</body>
+
+</html>
