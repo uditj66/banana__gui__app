@@ -50,7 +50,7 @@
     <p>my output: <textarea name="output" id="output__text" cols="100" rows="10"></textarea></p>
   </div>
   <script>
-   
+
     var button1 = document.querySelector("button");
     var textInput = document.querySelector("#text");
     var textoutput = document.querySelector("#output__text");
@@ -59,11 +59,12 @@
     console.log(textInput);
     console.log(textoutput);
 
-    var serverUrl = "https://lessonfourapi.tanaypratap.repl.co/translate/yoda.json";
-    // var serverUrlMinion=  "https://api.funtranslations.com/translate/";
+    // var serverUrl = "https://lessonfourapi.tanaypratap.repl.co/translate/yoda.json";
+    var serverUrlMinion = "https://api.funtranslations.com/translate/minion.json";
+
 
     function getTranslationByUrl(text) {
-      return serverUrl + "?" + "text" + text;
+      return serverUrlMinion + "?" + "text" + text;
     }
 
     function eventHandler() {
@@ -76,14 +77,14 @@
       fetch(getTranslationByUrl(finaltext))
         .then(response => response.json())
         .then(json => {
-          var translatedtext=json.contents.translated;
-          textoutput.innerHTML=translatedtext;
+          var translatedtext = json.contents.translated;
+          textoutput.innerHTML = translatedtext;
         })
 
     };
     button1.addEventListener("click", eventHandler);
 
-     
+
   </script>
 </body>
 
