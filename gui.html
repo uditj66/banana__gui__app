@@ -12,7 +12,7 @@
       padding: 0.5rem;
       font-size: x-large;
       color: white;
-      ;
+      cursor: pointer;;
       background-color: blueviolet;
       box-shadow: darkgrey;
       border-radius: 2em;
@@ -27,20 +27,7 @@
   <div class="container">
     <h1>THIS IS OUR JAVASCRIPT</h1>
     <div id="content"></div>
-    <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora nihil
-      molestiae consequuntur repellendus unde, autem maiores expedita sint
-      perspiciatis consequatur corrupti nulla, non fugiat! Excepturi error
-      enim culpa vero tempora incidunt illum amet laborum, autem, nihil quos
-      iusto odio eveniet quae sequi nobis in sed, dolores cupiditate
-      voluptatum? Possimus quam placeat consequuntur quaerat saepe ipsa
-      voluptates, quia cumque nihil rem sit distinctio nobis mollitia debitis
-      nesciunt dolorum eligendi soluta vel nostrum accusantium sapiente
-      doloremque asperiores dolore? Cumque id nobis, aut fugit ipsum ipsa est
-      accusantium unde eligendi rerum voluptas eveniet, neque iure atque
-      impedit molestiae officiis ipsam dolore itaque. Minus!
-    </p>
-    <p>
+    
       write here:
       <textarea name="input_txt" id="text" cols="100" rows="10" placeholder="what do want to translate"></textarea>
     </p>
@@ -64,7 +51,7 @@
 
 
     function getTranslationByUrl(text) {
-      return serverUrlMinion + "?" + "text" + text;
+      return serverUrlMinion + "?" + "text=" + text;
     }
 
     function eventHandler() {
